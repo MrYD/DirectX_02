@@ -27,11 +27,13 @@ namespace DirectX_01
         private Effect effect;
         private InputLayout inputLayout;
         private float time;
-        int n = 100;
+        private float area;
+        int n = 10;
 
         public void Render()
         {
             effect.GetVariableBySemantic("TIME").AsScalar().Set(time);
+         //   effect.GetVariableBySemantic("AREA").AsScalar().Set(area);
             a += 0.0003f;
             //device.ImmediateContext.ClearRenderTargetView(renderTarget, new Color4(1, (float)Math.Abs(Math.Sin(Math.PI / 3 + a / 1.5)), (float)Math.Abs(Math.Sin(a)), (float)Math.Abs(Math.Sin(Math.PI / 3 - a / 7.5))));//(A,R,G,B)
             //swapChain.Present(0, PresentFlags.None);
@@ -42,9 +44,9 @@ namespace DirectX_01
                 new VertexBufferBinding[] { new VertexBufferBinding(vertexBuffer,16 , 0) });
             device.ImmediateContext.InputAssembler.PrimitiveTopology = PrimitiveTopology.TriangleList;
             effect.GetTechniqueByIndex(0).GetPassByIndex(0).Apply(device.ImmediateContext);
-            device.ImmediateContext.Draw(3*n, 0);
+            device.ImmediateContext.Draw(24*n, 0);
             swapChain.Present(0, PresentFlags.None);
-            time += 0.0001f;
+            time += 0.001f;
             
         }
 
@@ -86,19 +88,27 @@ namespace DirectX_01
             device.ImmediateContext.Rasterizer.SetViewports(new Viewport[] { new Viewport(0, 0, Right, Bottom, 0, 1) });
             device.ImmediateContext.InputAssembler.PrimitiveTopology = PrimitiveTopology.TriangleList;
           
-            Vector4[] verticie = new Vector4[3*n];
-             //verticie[0]=   new Vector4(-1, -1, 0, 1);
-             //verticie[1]=   new Vector4(-1, 1, 0, 1);
-             //verticie[2] = new Vector4(1, -1, 0, 1);
-             //verticie[3] = new Vector4(1, 1, 0, 1);
-             //verticie[4] = new Vector4(1, -1, 0, 1);
-             //verticie[5] = new Vector4(-1, 1, 0, 1);
-        for (int i=0;i<3*n;i=i+3)
+            Vector4[] verticie = new Vector4[24*n];
+          
+        for (int i=0;i<24*n;i=i+12)
          {
-            verticie[i] = new Vector4((float)Math.Sin((i/(n*3f))*Math.PI*2),(float)Math.Cos((i/(n*3f))*Math.PI*2), 0, 1);
-            verticie[i+1] = new Vector4(0, 0, 0, 1);
-            verticie[i+2] = new Vector4((float)Math.Sin(((i -3)/ (n * 3f)) * Math.PI * 2), (float)Math.Cos(((i-3) / (n * 3f)) * Math.PI * 2), 0, 1);
-        }
+            float j = i /(6f* n)-1;
+            float k = (i + 12) / (6f * n) - 1;
+            verticie[i] = new Vector4(j,0, 0, 1);
+            verticie[i + 1] = new Vector4(j, 1, 0, 1);
+            verticie[i + 2] = new Vector4(k, 1, 0, 1);
+            verticie[i+3] = new Vector4(j,0, 0, 1);
+            verticie[i+4] = new Vector4(k, 1, 0, 1);
+            verticie[i + 5] = new Vector4(k, 0, 0, 1);
+            verticie[i+6] = new Vector4(j, 0, 0, 1);
+            verticie[i + 7] = new Vector4(k, -1, 0, 1);
+            verticie[i + 8] = new Vector4(j, -1, 0, 1);
+            verticie[i + 9] = new Vector4(j, 0, 0, 1);
+            verticie[i + 10] = new Vector4(k, 0, 0, 1);
+            verticie[i + 11] = new Vector4(k, -1, 0, 1);
+         }
+      
+
 
             using (DataStream ds = new DataStream(verticie, true, true))
             {
@@ -122,7 +132,7 @@ namespace DirectX_01
                     Format = Format.R32G32B32A32_Float
                 }, 
             });
-          //  device.ImmediateContext.Rasterizer.State=RasterizerState.FromDescription(device,new RasterizerStateDescription(){FillMode=FillMode.Wireframe,CullMode=CullMode.None}); //逆回り
+       //  device.ImmediateContext.Rasterizer.State=RasterizerState.FromDescription(device,new RasterizerStateDescription(){FillMode=FillMode.Wireframe,CullMode=CullMode.None}); //逆回り
             device.ImmediateContext.Rasterizer.SetViewports(new Viewport[] { new Viewport(0, 0, Width, Height, 0, 1), });
         }
     }
