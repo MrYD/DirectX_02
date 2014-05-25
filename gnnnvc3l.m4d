@@ -28,7 +28,8 @@ namespace DirectX_01
         private InputLayout inputLayout;
         private float time;
         private float area;
-        int n = 1000;
+        int n = 100;
+        int m = 5;
         public void Render()
         {
             effect.GetVariableBySemantic("TIME").AsScalar().Set(time);
@@ -47,9 +48,9 @@ namespace DirectX_01
             device.ImmediateContext.InputAssembler.InputLayout = inputLayout;
             device.ImmediateContext.InputAssembler.SetVertexBuffers(0,
                 new VertexBufferBinding[] { new VertexBufferBinding(vertexBuffer, 16, 0) });
-            device.ImmediateContext.InputAssembler.PrimitiveTopology = PrimitiveTopology.TriangleList;
+            device.ImmediateContext.InputAssembler.PrimitiveTopology = PrimitiveTopology.LineStrip;
             effect.GetTechniqueByIndex(0).GetPassByIndex(0).Apply(device.ImmediateContext);
-            device.ImmediateContext.Draw(24 * n, 0);
+            device.ImmediateContext.Draw(m * n, 0);
             swapChain.Present(0, PresentFlags.None);
             time += 0.001f;
 
@@ -93,26 +94,28 @@ namespace DirectX_01
             device.ImmediateContext.Rasterizer.SetViewports(new Viewport[] { new Viewport(0, 0, Right, Bottom, 0, 1) });
             device.ImmediateContext.InputAssembler.PrimitiveTopology = PrimitiveTopology.TriangleList;
 
-            Vector4[] verticie = new Vector4[24 * n];
-
-            for (int i = 0; i < 24 * n; i = i + 12)
+            Vector4[] verticie = new Vector4[m * n];
+            int i = 0, j = 0;
+            int count = 0;
+            float cosA, cosB, sinA, sinB;
+            float r =0.1f;
+            float h = 2;
+            for (i = 0; i < m; i++)
             {
-                float j = i / (6f * n) - 1;
-                float k = (i + 12) / (6f * n) - 1;
-                float mini = 1f;
-                verticie[i] = new Vector4(j, 0, 0, 1);
-                verticie[i + 1] = new Vector4(j, mini, 1, 1);
-                verticie[i + 2] = new Vector4(k, mini, 1, 1);
-                verticie[i + 3] = new Vector4(j, 0, 1, 1);
-                verticie[i + 4] = new Vector4(k, mini, 1, 1);
-                verticie[i + 5] = new Vector4(k, 0, 1, 1);
+              
+                for (j = 0; j < n; j++)
+                {
+                    cosA = (float)Math.Cos((double)i * 2 * Math.PI / m);
+                    cosB = (float)Math.Cos((double)j * 2 * Math.PI / n);
+                    sinA = (float)Math.Sin((double)i * 2 * Math.PI / m);
+                    sinB = (float)Math.Sin((double)j * 2 * Math.PI / n);
+                    if (r - 1 <= Math.Abs(cosB))
+                    { 
+                        verticie[count] = new Vector4((cosA * sinB) + ((1-r) * cosA) + (h* sinA * cosB), -sinA * sinB - ((1-r) * sinA) + (h * cosA * cosB), 1, 1);
+                        count++;
+                    }
+                }
 
-                verticie[i + 6] = new Vector4(j, 0, 1, 1);
-                verticie[i + 7] = new Vector4(k, -mini, 1, 1);
-                verticie[i + 8] = new Vector4(j, -mini, 1, 1);
-                verticie[i + 9] = new Vector4(j, 0, 1, 1);
-                verticie[i + 10] = new Vector4(k, 0, 1, 1);
-                verticie[i + 11] = new Vector4(k, -mini, 1, 1);
             }
 
 
