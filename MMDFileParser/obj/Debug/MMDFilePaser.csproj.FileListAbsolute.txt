@@ -1,0 +1,14 @@
+C:\Users\Yidao\Documents\mmflex\MikuMikuFlex\MMDFileParser\obj\Debug\MMDFilePaser.csprojResolveAssemblyReference.cache
+C:\Users\Yidao\Documents\mmflex\MikuMikuFlex\MMDFileParser\bin\Debug\MMDFileParser.dll
+C:\Users\Yidao\Documents\mmflex\MikuMikuFlex\MMDFileParser\bin\Debug\MMDFileParser.pdb
+C:\Users\Yidao\Documents\mmflex\MikuMikuFlex\MMDFileParser\bin\Debug\protobuf-net.dll
+C:\Users\Yidao\Documents\mmflex\MikuMikuFlex\MMDFileParser\bin\Debug\SlimDX.dll
+C:\Users\Yidao\Documents\mmflex\MikuMikuFlex\MMDFileParser\bin\Debug\protobuf-net.xml
+C:\Users\Yidao\Documents\mmflex\MikuMikuFlex\MMDFileParser\obj\Debug\MMDFileParser.dll
+C:\Users\Yidao\Documents\mmflex\MikuMikuFlex\MMDFileParser\obj\Debug\MMDFileParser.pdb
+C:\Users\Yidao\Documents\Visual Studio 2013\Projects\DirectX_01\DirectX_01\MMDFileParser\bin\Debug\MMDFileParser.dll
+C:\Users\Yidao\Documents\Visual Studio 2013\Projects\DirectX_01\DirectX_01\MMDFileParser\bin\Debug\MMDFileParser.pdb
+C:\Users\Yidao\Documents\Visual Studio 2013\Projects\DirectX_01\DirectX_01\MMDFileParser\bin\Debug\protobuf-net.xml
+C:\Users\Yidao\Documents\Visual Studio 2013\Projects\DirectX_01\DirectX_01\MMDFileParser\obj\Debug\MMDFilePaser.csprojResolveAssemblyReference.cache
+C:\Users\Yidao\Documents\Visual Studio 2013\Projects\DirectX_01\DirectX_01\MMDFileParser\obj\Debug\MMDFileParser.dll
+C:\Users\Yidao\Documents\Visual Studio 2013\Projects\DirectX_01\DirectX_01\MMDFileParser\obj\Debug\MMDFileParser.pdb

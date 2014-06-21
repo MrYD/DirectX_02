@@ -9,3 +9,7 @@ c:\users\yidao\documents\visual studio 2013\Projects\DirectX_01\DirectX_01\obj\D
 c:\users\yidao\documents\visual studio 2013\Projects\DirectX_01\DirectX_01\obj\Debug\DirectX_01.pdb
 C:\Users\Yidao\documents\visual studio 2013\Projects\DirectX_01\DirectX_01\bin\Debug\shader.fx
 C:\Users\Yidao\documents\visual studio 2013\Projects\DirectX_01\DirectX_01\obj\Debug\DirectX_01.Form1.resources
+C:\Users\Yidao\documents\visual studio 2013\Projects\DirectX_01\DirectX_01\bin\Debug\MMDFileParser.dll
+C:\Users\Yidao\documents\visual studio 2013\Projects\DirectX_01\DirectX_01\bin\Debug\protobuf-net.dll
+C:\Users\Yidao\documents\visual studio 2013\Projects\DirectX_01\DirectX_01\bin\Debug\MMDFileParser.pdb
+C:\Users\Yidao\documents\visual studio 2013\Projects\DirectX_01\DirectX_01\bin\Debug\protobuf-net.xml
