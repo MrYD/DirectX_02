@@ -70,15 +70,15 @@ float4 PS(PS_INPUT input) :SV_Target
 	//float b = abs(sin(log(2 + abs(time * roatY / (roatX + 1))))) + sin((roatX + time - 2) * 2) + roatY*roatY + roatX * sin(time) + sin(time)*roatY + light;
 
 
-	return float4(light,light,light,1);
-		//float4 col = tex.Sample(mySampler, float2(PX, PY));
+	    //return float4(light,light,light,1);
+	float4 col =tex.Sample(mySampler, float2(X, Y))+ float4(light/2, light/2, light/2, 1);
 		
 		//col.rgb = 1.0.rrr - col.rgb;
 		//col.rgb = dot(col.rgb,float3(0.3,0.59,0.11)).xxx;
 		//col.rgb = col.rgb*col.rgb*col.rgb;
 		//col.xyz *= t;
 		
-		//return col;
+		return col;
 }
 
 technique10 DefaultTechnique

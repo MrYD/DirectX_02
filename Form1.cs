@@ -266,7 +266,7 @@ namespace DirectX_01
             });
             //  device.ImmediateContext.Rasterizer.State=RasterizerState.FromDescription(device,new RasterizerStateDescription(){FillMode=FillMode.Wireframe,CullMode=CullMode.None}); //逆回り
             device.ImmediateContext.Rasterizer.SetViewports(new Viewport[] { new Viewport(0, 0, Width, Height, 0, 1), });
-            Texture2D sResource = Texture2D.FromFile(device, "C:\\Users\\Yidao\\Pictures\\あずにゃん\\Nrpdm.jpg");
+            Texture2D sResource = Texture2D.FromFile(device, "C:\\Users\\Yidao\\Pictures\\未分類\\imgres.jpg");
             sView = new ShaderResourceView(device, sResource);
             proj = Matrix.PerspectiveFovLH((float)Math.PI/4f, Width/Height, 0.2f, 100);
 
